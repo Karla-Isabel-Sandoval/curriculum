@@ -12,7 +12,8 @@
 - "Relational Databases" lesson
 
 ### Motivation
-Not all data can be (or should be) stored in a relational way. In those cases, it is more efficient to use a NoSQL database ("**N**ot **O**nly **SQL**"). MongoDB is one of the most popular NoSQL databases. MongoDB uses JSON-like documents to store data, making it an easy database to learn how to use for folks who already know JavaScript.
+Not all data can be or should be stored in a relational way. In those cases, it is more efficient to use a NoSQL database ("**N**ot **O**nly **SQL**"). MongoDB is one of the most popular NoSQL databases because it is schemaless and uses JSON-like documents to store data. 
+Learning how to use MongoDB for folks who already know JavaScript is easy and the fact that MongoDB stores documents makes it easy to program in.
 
 
 ### Objective
@@ -57,6 +58,18 @@ Left off here
 
 - Make sure you have the directory /data/db. If not, run `mkdir -p /data/db`.
 - Run `whoami` to find your username. For example, your username is "myname", then you will run the following command `sudo chown myname /data/db`. You may need to enter your password.
+- If you'd like to check and see if your has the right permissions add 
+``` > sudo chown -R `id -un` /data/db
+> # Enter your password ``` 
+- Run the Mongo Daemon - in one of your terminal windows run ` mongod ` 
+- Run the Mongo Shell - keep your Mongo deaemon running in one window and in one of your other terminal windows run `mongo`,this will allow you to access data in MongoDB.
+
+- To exit the Mongo shell type quit()
+- To stop the Mongo daemon hit > ctrl-c 
+
+
+
+
 - If a ~/.bash_profile exist, open it. If not, create one. Enter:
   - `export MONGO_PATH=/usr/local/mongodb`
   - `export PATH=$PATH:$MONGO_PATH/bin`
@@ -91,10 +104,12 @@ Left off here
 
 "$lt" was used earlier to filter out which documents you deleted. MongoDB's documentation have a page on [Operators](https://docs.mongodb.com/manual/reference/operator/query/). What type of operator is "$lt"?
 
-Operator can be use to only only filter what you remove, but also what you find. For example, `db.classmated.find({"month": {$lt: 6}})` will output any anyone born before July. You will be testing some of it next.
+Operator can be use to not only filter what you remove, but also what you find. For example, `db.classmated.find({"month": {$lt: 6}})` will output any anyone born before July. You will be testing some of it next.
 
 Open up the MongoDB daemon and shell again, create a database named "filterData". Create a collection named "zoo". Create at least 3 documents in the following format: `{"type": "lion", "name": "Suzy", "age": 10}`. Look at MongoDB's Operator page and find at least one operator other than Comparison Operator (which $lt was), and then test it out in the zoo collection.
 
 ### Check for Understanding
 
-List out the steps to store data in MongoDB. Find a classmate. One of you will try to explain the steps by comparing it to organizing books, and the other will compare it to organizing kitchen utensils.
+List out the steps to store data in MongoDB.
+ Find a classmate.
+  One of you will try to explain the steps by comparing it to organizing books, and the other will compare it to organizing kitchen utensils.
